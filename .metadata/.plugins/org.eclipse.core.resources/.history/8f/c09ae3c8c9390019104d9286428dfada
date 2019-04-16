@@ -1,0 +1,68 @@
+package com.ebanking.scripts;
+
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Basicscript {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//launch Firefox
+		WebDriver driver=new FirefoxDriver();
+		//maximize
+		driver.manage().window().maximize();
+		//url
+		driver.get("http://183.82.100.55/ranford2");
+		//adminlogin
+		driver.findElement(By.id("txtuId")).sendKeys("Admin");
+		driver.findElement(By.id("txtPword")).sendKeys("M1ndq");
+	    driver.findElement(By.xpath("*//input[@name='login']")).click();
+	    //branches
+	    driver.findElement(By.xpath("//*[contains(@src,'images/Branches_but.jpg')]")).click();
+		driver.findElement(By.xpath("//input[@name='BtnNewBR']")).click();
+		driver.findElement(By.xpath("//input[@name='txtbName']")).sendKeys("chennai");
+		driver.findElement(By.xpath("//input[@name='txtAdd1']")).sendKeys("padur");
+		driver.findElement(By.xpath("//input[@name='txtZip']")).sendKeys("603106");
+		WebElement e = driver.findElement(By.name("lst_counrtyU"));
+	     Select ctry = new Select(e);
+	     ctry.selectByVisibleText("INDIA");
+	     WebElement e1 = driver.findElement(By.xpath("//*[@name='lst_stateI']"));
+	     Select state = new Select(e1);
+	     state.selectByVisibleText("Tamil Nadu");
+	     driver.findElement(By.xpath("//input[@name='txtArea']")).sendKeys("navalur");
+	     WebElement e3= driver.findElement(By.name("lst_cityI"));
+	     Select city =new Select(e3);
+	     city.selectByIndex(1);
+	     driver.findElement(By.xpath("//*[@name='btn_insert']")).click();
+	     //alret
+	     driver.switchTo().alert().accept();
+	     //roles
+	     driver.findElement(By.xpath("//*[@src='images/Roles_but.jpg']")).click();
+	     driver.findElement(By.xpath("//*[@name='btnRoles']")).click();
+	     driver.findElement(By.xpath("//*[@name='txtRname']")).sendKeys("Clerk");
+	     driver.findElement(By.xpath("//*[@name='txtRDesc']")).sendKeys("xshd");
+	     WebElement e4=driver.findElement(By.xpath("//*[@id='lstRtypeN']"));
+	     Select role=new Select(e4);
+	     role.selectByIndex(1);
+        driver.findElement(By.xpath("//*[@id='btninsert']")).click();
+        driver.switchTo().alert().accept();
+        //Employee
+        driver.findElement(By.xpath("//*[@src='images/emp_btn.jpg']")).click();
+        driver.findElement(By.xpath("//*[@src='images/New%20Emp.jpg']")).click();
+        driver.findElement(By.xpath("//*[@name='txtUname']")).sendKeys("Rupali");
+        driver.findElement(By.xpath("//*[@name='txtLpwd']")).sendKeys("12345");
+        WebElement e5=driver.findElement(By.xpath("//*[@name='lst_Roles']"));
+        Select s=new Select(e5);
+        s.selectByValue("testIT");
+        WebElement e6=driver.findElement(By.xpath("//*[@name='lst_Branch']"));
+        Select s1=new Select(e6);
+        s1.selectByVisibleText("abc");
+        driver.findElement(By.xpath("//*[@name='BtnSubmit']")).click();
+        driver.switchTo().alert().accept();
+	}
+
+}
+

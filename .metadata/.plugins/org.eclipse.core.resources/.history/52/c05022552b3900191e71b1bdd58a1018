@@ -1,0 +1,43 @@
+package com.ebanking.scripts;
+
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Basicscript {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//launch Firefox
+		WebDriver driver=new FirefoxDriver();
+		//maximize
+		driver.manage().window().maximize();
+		//url
+		driver.get("http://183.82.100.55/ranford2");
+		//adminlogin
+		driver.findElement(By.id("txtuId")).sendKeys("Admin");
+		driver.findElement(By.id("txtPword")).sendKeys("M1ndq");
+	    driver.findElement(By.xpath("*//input[@name='login']")).click();
+	    //branches
+	    driver.findElement(By.xpath("//*[contains(@src,'images/Branches_but.jpg')]")).click();
+		driver.findElement(By.xpath("//input[@name='BtnNewBR']")).click();
+		driver.findElement(By.xpath("//input[@name='txtbName']")).sendKeys("chennai");
+		driver.findElement(By.xpath("//input[@name='txtAdd1']")).sendKeys("padur");
+		driver.findElement(By.xpath("//input[@name='txtZip']")).sendKeys("603106");
+		WebElement e = driver.findElement(By.name("lst_counrtyU"));
+	     Select ctry = new Select(e);
+	     ctry.selectByVisibleText("INDIA");
+	     WebElement e1 = driver.findElement(By.name("lst_stateI"));
+	     Select state = new Select(e1);
+	     state.selectByVisibleText("Tamil Nadu");
+	     driver.findElement(By.xpath("//input[@name='txtArea']")).sendKeys("navalur");
+	     WebElement e3= driver.findElement(By.name("lst_cityI"));
+	     Select city =new Select(e3);
+	     city.selectByVisibleText("Chennai");
+     
+	}
+
+}
+

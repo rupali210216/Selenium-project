@@ -1,0 +1,6 @@
+Name###Address###pin###Result
+Navalur12###padur1###45221
+chennai154###pune2###64851
+kellambbakam1###hyderabad1###45896
+kellambbakam2###mumbai2###58241
+
